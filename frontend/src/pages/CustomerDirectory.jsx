@@ -34,7 +34,7 @@ const CustomerDirectory = () => {
       c.company.toLowerCase().includes(q) ||
       c.email.toLowerCase().includes(q)
     );
-  }, [query]);
+  }, [query, CUSTOMERS, TICKETS]);
 
   const onToggleReveal = (next) => {
     if (next === true) {

@@ -65,7 +65,7 @@ const TicketQueue = () => {
       Pending: base.filter((t) => t.status === "Pending").length,
       Resolved: base.filter((t) => t.status === "Resolved").length,
     };
-  }, [query, priorityFilter]);
+  }, [query, priorityFilter, TICKETS, CUSTOMERS]);
 
   const rows = useMemo(() => {
     const enriched = TICKETS.map((t) => ({
@@ -93,7 +93,7 @@ const TicketQueue = () => {
       priority: (a, b) => ({ High: 0, Medium: 1, Low: 2 }[a.priority] - { High: 0, Medium: 1, Low: 2 }[b.priority]),
     }[sortBy];
     return r.sort(cmp);
-  }, [query, statusFilter, priorityFilter, sortBy]);
+  }, [query, statusFilter, priorityFilter, sortBy, TICKETS, CUSTOMERS, AGENTS]);
 
   const openTicket = (t) => {
     setSelected(t);

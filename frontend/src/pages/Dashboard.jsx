@@ -41,6 +41,10 @@ const priorityColors = {
   Low: "#10b981",    // emerald-500
 };
 
+const CHART_MARGIN = { top: 8, right: 8, left: -16, bottom: 0 };
+const AXIS_TICK = { fontSize: 10, fill: "#64748b" };
+const CHART_CURSOR = { stroke: "#cbd5e1", strokeDasharray: "3 3" };
+
 const ChartTooltip = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   return (
@@ -134,7 +138,7 @@ const Dashboard = () => {
           </div>
           <div className="h-[280px]">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={TICKET_TRENDS} margin={{ top: 8, right: 8, left: -16, bottom: 0 }}>
+              <AreaChart data={TICKET_TRENDS} margin={CHART_MARGIN}>
                 <defs>
                   {Object.entries(priorityColors).map(([k, c]) => (
                     <linearGradient key={k} id={`g-${k}`} x1="0" y1="0" x2="0" y2="1">
@@ -144,9 +148,9 @@ const Dashboard = () => {
                   ))}
                 </defs>
                 <CartesianGrid stroke="#e2e8f0" strokeDasharray="2 4" vertical={false} />
-                <XAxis dataKey="day" tick={{ fontSize: 10, fill: "#64748b" }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 10, fill: "#64748b" }} axisLine={false} tickLine={false} width={36} />
-                <Tooltip content={<ChartTooltip />} cursor={{ stroke: "#cbd5e1", strokeDasharray: "3 3" }} />
+                <XAxis dataKey="day" tick={AXIS_TICK} axisLine={false} tickLine={false} />
+                <YAxis tick={AXIS_TICK} axisLine={false} tickLine={false} width={36} />
+                <Tooltip content={<ChartTooltip />} cursor={CHART_CURSOR} />
                 <Area type="monotone" dataKey="Low" stroke={priorityColors.Low} strokeWidth={2} fill="url(#g-Low)" />
                 <Area type="monotone" dataKey="Medium" stroke={priorityColors.Medium} strokeWidth={2} fill="url(#g-Medium)" />
                 <Area type="monotone" dataKey="High" stroke={priorityColors.High} strokeWidth={2} fill="url(#g-High)" />
