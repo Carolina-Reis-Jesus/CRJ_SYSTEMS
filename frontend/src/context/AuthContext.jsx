@@ -3,7 +3,7 @@ import { CURRENT_USER } from "../lib/mockData";
 
 const AuthContext = createContext(null);
 
-const STORAGE_KEY = "nimbus.auth.session";
+const STORAGE_KEY = "crjsystems.auth.session";
 
 const readSession = () => {
   try {
@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     // Mocked auth — accepts demo credentials
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (email === "helena@nimbus.support" && password === "Tier2!2026") {
+        if (email === "helena@crjsystems.com" && password === "Tier2!2026") {
           const session = { ...CURRENT_USER, sessionStartedAt: new Date().toISOString() };
           localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
           setUser(session);

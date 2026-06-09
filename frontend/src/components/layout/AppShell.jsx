@@ -13,7 +13,7 @@ const TITLES = {
 const AppShell = () => {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
-  const meta = TITLES[location.pathname] || { title: "Nimbus", subtitle: "" };
+  const meta = TITLES[location.pathname] || { title: "CRJ Systems", subtitle: "" };
 
   return (
     <div className="min-h-screen bg-slate-50/50 flex">

@@ -37,7 +37,7 @@ const Login = () => {
   };
 
   const fillDemo = () => {
-    setEmail("helena@nimbus.support");
+    setEmail("helena@crjsystems.com");
     setPassword("Tier2!2026");
     toast.message("Demo credentials filled", { description: "Click Sign in to continue." });
   };
@@ -51,7 +51,7 @@ const Login = () => {
             <Sparkles className="h-4 w-4" />
           </div>
           <div className="leading-tight">
-            <div className="text-sm font-semibold text-slate-900 tracking-tight">Nimbus</div>
+            <div className="text-sm font-semibold text-slate-900 tracking-tight">CRJ Systems</div>
             <div className="text-[10px] uppercase tracking-[0.14em] text-slate-500">Helpdesk Console</div>
           </div>
         </div>
@@ -129,7 +129,7 @@ const Login = () => {
           </div>
         </div>
 
-        <div className="text-[11px] text-slate-400">© 2026 Nimbus Support, Inc.</div>
+        <div className="text-[11px] text-slate-400">© 2026 CRJ Systems, Inc.</div>
       </div>
 
       {/* Right — visual */}
@@ -168,7 +168,7 @@ const Login = () => {
           </div>
 
           <div className="text-[11px] text-slate-500">
-            &ldquo;Nimbus replaced three tools and gave compliance the audit trail they begged us for.&rdquo;
+            &ldquo;CRJ Systems replaced three tools and gave compliance the audit trail they begged us for.&rdquo;
             <div className="text-slate-400 mt-1">— Daniel Pereira · Head of Support, Atlas Banking</div>
           </div>
         </div>

@@ -26,7 +26,7 @@ const Sidebar = ({ collapsed, onToggle }) => {
           </div>
           {!collapsed && (
             <div className="leading-tight">
-              <div className="text-sm font-semibold text-slate-900 tracking-tight">Nimbus</div>
+              <div className="text-sm font-semibold text-slate-900 tracking-tight">CRJ Systems</div>
               <div className="text-[10px] uppercase tracking-[0.14em] text-slate-500">Helpdesk</div>
             </div>
           )}

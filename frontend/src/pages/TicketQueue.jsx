@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Search, SlidersHorizontal, ShieldAlert, Lock } from "lucide-react";
+import { Search, SlidersHorizontal, ShieldAlert, Lock, ListFilter, AlertCircle, CheckCircle2, Clock4, Inbox as InboxIcon } from "lucide-react";
 import { toast } from "sonner";
 import { TICKETS, CUSTOMERS, AGENTS } from "@/lib/mockData";
 import { formatRelative } from "@/lib/lgpd";
@@ -10,6 +10,14 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import TicketDetailSheet from "@/components/tickets/TicketDetailSheet";
 import { useAuth } from "@/context/AuthContext";
+
+const STATUS_TABS = [
+  { key: "All", label: "All", icon: ListFilter, dot: "bg-slate-400" },
+  { key: "Open", label: "Open", icon: InboxIcon, dot: "bg-indigo-500" },
+  { key: "In Progress", label: "In Progress", icon: AlertCircle, dot: "bg-violet-500" },
+  { key: "Pending", label: "Pending", icon: Clock4, dot: "bg-amber-500" },
+  { key: "Resolved", label: "Resolved", icon: CheckCircle2, dot: "bg-emerald-500" },
+];
 
 const priorityStyles = {
   High: "bg-rose-50 text-rose-700 border-rose-200",
@@ -31,6 +39,33 @@ const TicketQueue = () => {
   const [sortBy, setSortBy] = useState("updated_desc");
   const [selected, setSelected] = useState(null);
   const [sheetOpen, setSheetOpen] = useState(false);
+
+  // Compute counts per status — respects query + priority filter for honest counts
+  const statusCounts = useMemo(() => {
+    const base = TICKETS.map((t) => ({
+      ...t,
+      customer: CUSTOMERS.find((c) => c.id === t.customerId),
+    })).filter((t) => {
+      if (priorityFilter !== "All" && t.priority !== priorityFilter) return false;
+      if (query) {
+        const q = query.toLowerCase();
+        return (
+          t.id.toLowerCase().includes(q) ||
+          t.subject.toLowerCase().includes(q) ||
+          t.customer?.company.toLowerCase().includes(q) ||
+          t.customer?.name.toLowerCase().includes(q)
+        );
+      }
+      return true;
+    });
+    return {
+      All: base.length,
+      Open: base.filter((t) => t.status === "Open").length,
+      "In Progress": base.filter((t) => t.status === "In Progress").length,
+      Pending: base.filter((t) => t.status === "Pending").length,
+      Resolved: base.filter((t) => t.status === "Resolved").length,
+    };
+  }, [query, priorityFilter]);
 
   const rows = useMemo(() => {
     const enriched = TICKETS.map((t) => ({
@@ -73,7 +108,43 @@ const TicketQueue = () => {
 
   return (
     <div className="space-y-5 animate-fade-in-up">
-      {/* Filter toolbar */}
+      {/* Interactive status filter tabs */}
+      <div data-testid="ticket-status-tabs" className="bg-white rounded-xl ring-1 ring-slate-200/70 px-2 py-2 flex items-center gap-1 overflow-x-auto scrollbar-thin">
+        {STATUS_TABS.map((tab) => {
+          const Icon = tab.icon;
+          const active = statusFilter === tab.key;
+          const count = statusCounts[tab.key] ?? 0;
+          return (
+            <button
+              key={tab.key}
+              data-testid={`status-tab-${tab.key.toLowerCase().replace(/\s+/g, "-")}`}
+              onClick={() => setStatusFilter(tab.key)}
+              aria-pressed={active}
+              className={cn(
+                "group inline-flex items-center gap-2 h-9 px-3 rounded-lg text-xs font-medium transition-all whitespace-nowrap",
+                active
+                  ? "bg-slate-900 text-white shadow-sm"
+                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+              )}
+            >
+              <Icon className={cn("h-3.5 w-3.5", active ? "text-white" : "text-slate-400")} />
+              <span>{tab.label}</span>
+              <span
+                className={cn(
+                  "inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full text-[10px] font-semibold tabular-nums transition-colors",
+                  active
+                    ? "bg-white/15 text-white"
+                    : "bg-slate-100 text-slate-600 group-hover:bg-slate-200"
+                )}
+              >
+                {count}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Search + secondary filters toolbar */}
       <div data-testid="ticket-toolbar" className="bg-white rounded-xl ring-1 ring-slate-200/70 p-4 flex flex-col lg:flex-row lg:items-center gap-3">
         <div className="relative flex-1 min-w-0">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
@@ -86,17 +157,6 @@ const TicketQueue = () => {
           />
         </div>
         <div className="flex items-center gap-2 flex-wrap">
-          <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger data-testid="filter-status" className="h-9 w-[140px] text-xs"><SelectValue placeholder="Status" /></SelectTrigger>
-            <SelectContent>
-              <SelectItem value="All">All statuses</SelectItem>
-              <SelectItem value="Open">Open</SelectItem>
-              <SelectItem value="In Progress">In Progress</SelectItem>
-              <SelectItem value="Pending">Pending</SelectItem>
-              <SelectItem value="Resolved">Resolved</SelectItem>
-            </SelectContent>
-          </Select>
-
           <Select value={priorityFilter} onValueChange={setPriorityFilter}>
             <SelectTrigger data-testid="filter-priority" className="h-9 w-[140px] text-xs"><SelectValue placeholder="Priority" /></SelectTrigger>
             <SelectContent>

@@ -3,7 +3,7 @@
 export const CURRENT_USER = {
   id: "usr_4f8a",
   name: "Helena Marques",
-  email: "helena.marques@nimbus.support",
+  email: "helena.marques@crjsystems.com",
   role: "Support Specialist (Tier 2)",
   permissions: ["read:tickets", "write:tickets", "read:customers", "write:notes"],
   avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&w=128&q=80",
@@ -303,15 +303,15 @@ export const KPIS = {
 };
 
 export const AUDIT_EVENTS = [
-  { id: "ev_1", at: ago(3), actor: "helena.marques@nimbus.support", event: "ticket.viewed", target: "TCK-2841", ip: "189.122.04.11", severity: "info" },
+  { id: "ev_1", at: ago(3), actor: "helena.marques@crjsystems.com", event: "ticket.viewed", target: "TCK-2841", ip: "189.122.04.11", severity: "info" },
   { id: "ev_2", at: ago(8), actor: "system", event: "sla.breach.trigger", target: "TCK-2835", ip: "—", severity: "warning" },
-  { id: "ev_3", at: ago(14), actor: "rafael.costa@nimbus.support", event: "api_key.rotated", target: "key_prod_a8x", ip: "189.122.04.34", severity: "warning" },
-  { id: "ev_4", at: ago(22), actor: "helena.marques@nimbus.support", event: "ticket.status.changed", target: "TCK-2841 → In Progress", ip: "189.122.04.11", severity: "info" },
-  { id: "ev_5", at: ago(45), actor: "julia.andrade@nimbus.support", event: "ticket.assigned", target: "TCK-2841 → Helena Marques", ip: "189.122.04.92", severity: "info" },
+  { id: "ev_3", at: ago(14), actor: "rafael.costa@crjsystems.com", event: "api_key.rotated", target: "key_prod_a8x", ip: "189.122.04.34", severity: "warning" },
+  { id: "ev_4", at: ago(22), actor: "helena.marques@crjsystems.com", event: "ticket.status.changed", target: "TCK-2841 → In Progress", ip: "189.122.04.11", severity: "info" },
+  { id: "ev_5", at: ago(45), actor: "julia.andrade@crjsystems.com", event: "ticket.assigned", target: "TCK-2841 → Helena Marques", ip: "189.122.04.92", severity: "info" },
   { id: "ev_6", at: ago(60), actor: "system", event: "encryption.key.rotated", target: "vault_prod", ip: "—", severity: "info" },
-  { id: "ev_7", at: ago(120), actor: "bruno.lima@nimbus.support", event: "customer.export.attempted", target: "c_001 (denied)", ip: "189.122.05.21", severity: "critical" },
+  { id: "ev_7", at: ago(120), actor: "bruno.lima@crjsystems.com", event: "customer.export.attempted", target: "c_001 (denied)", ip: "189.122.05.21", severity: "critical" },
   { id: "ev_8", at: ago(180), actor: "system", event: "auth.failed_login", target: "unknown@—", ip: "201.45.221.18", severity: "warning" },
-  { id: "ev_9", at: ago(240), actor: "helena.marques@nimbus.support", event: "session.started", target: "MFA verified", ip: "189.122.04.11", severity: "info" },
+  { id: "ev_9", at: ago(240), actor: "helena.marques@crjsystems.com", event: "session.started", target: "MFA verified", ip: "189.122.04.11", severity: "info" },
   { id: "ev_10", at: ago(360), actor: "system", event: "data_retention.purge", target: "2,840 records (>180d)", ip: "—", severity: "info" },
 ];
 
