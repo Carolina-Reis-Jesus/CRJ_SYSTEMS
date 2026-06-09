@@ -2,17 +2,17 @@
 
 export const CURRENT_USER = {
   id: "usr_4f8a",
-  name: "Helena Marques",
-  email: "helena.marques@crjsystems.com",
+  name: "Carolina Reis",
+  email: "carolina.reis@crjsystems.com",
   role: "Support Specialist (Tier 2)",
   permissions: ["read:tickets", "write:tickets", "read:customers", "write:notes"],
   avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&w=128&q=80",
-  initials: "HM",
+  initials: "CR",
   tier: 2,
 };
 
 export const AGENTS = [
-  { id: "ag_01", name: "Helena Marques", initials: "HM", tier: 2, avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&w=64&q=80" },
+  { id: "ag_01", name: "Carolina Reis", initials: "CR", tier: 2, avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&w=64&q=80" },
   { id: "ag_02", name: "Rafael Costa", initials: "RC", tier: 3, avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=srgb&fm=jpg&w=64&q=80" },
   { id: "ag_03", name: "Júlia Andrade", initials: "JA", tier: 1, avatar: "https://images.unsplash.com/photo-1607503873903-c5e95f80d7b9?crop=entropy&cs=srgb&fm=jpg&w=64&q=80" },
   { id: "ag_04", name: "Bruno Lima", initials: "BL", tier: 2, avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=srgb&fm=jpg&w=64&q=80" },
@@ -48,14 +48,14 @@ export const TICKETS = [
     history: [
       { id: "h1", actor: "Mariana Sousa", actorType: "customer", action: "Ticket opened via email", at: ago(140) },
       { id: "h2", actor: "System", actorType: "system", action: "Auto-triaged → Integration · High priority", at: ago(139) },
-      { id: "h3", actor: "Júlia Andrade", actorType: "agent", action: "Assigned to Helena Marques (Tier 2)", at: ago(120) },
+      { id: "h3", actor: "Júlia Andrade", actorType: "agent", action: "Assigned to Carolina Reis (Tier 2)", at: ago(120) },
       { id: "h4", actor: "System", actorType: "system", action: "SLA breach trigger — priority raised", at: ago(60) },
-      { id: "h5", actor: "Helena Marques", actorType: "agent", action: "Replied with diagnostic request", at: ago(45) },
+      { id: "h5", actor: "Carolina Reis", actorType: "agent", action: "Replied with diagnostic request", at: ago(45) },
       { id: "h6", actor: "Mariana Sousa", actorType: "customer", action: "Attached HAR logs (3.2 MB)", at: ago(20) },
-      { id: "h7", actor: "Helena Marques", actorType: "agent", action: "Status changed → In Progress", at: ago(12) },
+      { id: "h7", actor: "Carolina Reis", actorType: "agent", action: "Status changed → In Progress", at: ago(12) },
     ],
     notes: [
-      { id: "n1", author: "Helena Marques", at: ago(40), body: "HAR logs confirm 504 originates from auth-edge-2. Suspect token refresh loop." },
+      { id: "n1", author: "Carolina Reis", at: ago(40), body: "HAR logs confirm 504 originates from auth-edge-2. Suspect token refresh loop." },
       { id: "n2", author: "Rafael Costa", at: ago(18), body: "Confirmed with infra: edge node degraded. Rolling restart scheduled in 5 min." },
     ],
   },
@@ -174,7 +174,7 @@ export const TICKETS = [
     history: [
       { id: "h1", actor: "Lucas Ribeiro", actorType: "customer", action: "Ticket opened via email", at: ago(180) },
       { id: "h2", actor: "System", actorType: "system", action: "Auto-triaged → Security · High priority", at: ago(180) },
-      { id: "h3", actor: "Helena Marques", actorType: "agent", action: "Self-assigned", at: ago(150) },
+      { id: "h3", actor: "Carolina Reis", actorType: "agent", action: "Self-assigned", at: ago(150) },
       { id: "h4", actor: "System", actorType: "system", action: "SLA breach trigger — priority raised", at: ago(30) },
     ],
     notes: [],
@@ -251,8 +251,8 @@ export const TICKETS = [
     description: "Compliance officer cannot export audit logs — expected per LGPD article 9.",
     history: [
       { id: "h1", actor: "Daniel Pereira", actorType: "customer", action: "Ticket opened via email", at: ago(300) },
-      { id: "h2", actor: "Helena Marques", actorType: "agent", action: "Self-assigned", at: ago(270) },
-      { id: "h3", actor: "Helena Marques", actorType: "agent", action: "Escalated to Security team", at: ago(80) },
+      { id: "h2", actor: "Carolina Reis", actorType: "agent", action: "Self-assigned", at: ago(270) },
+      { id: "h3", actor: "Carolina Reis", actorType: "agent", action: "Escalated to Security team", at: ago(80) },
     ],
     notes: [],
   },
@@ -303,15 +303,15 @@ export const KPIS = {
 };
 
 export const AUDIT_EVENTS = [
-  { id: "ev_1", at: ago(3), actor: "helena.marques@crjsystems.com", event: "ticket.viewed", target: "TCK-2841", ip: "189.122.04.11", severity: "info" },
+  { id: "ev_1", at: ago(3), actor: "carolina.reis@crjsystems.com", event: "ticket.viewed", target: "TCK-2841", ip: "189.122.04.11", severity: "info" },
   { id: "ev_2", at: ago(8), actor: "system", event: "sla.breach.trigger", target: "TCK-2835", ip: "—", severity: "warning" },
   { id: "ev_3", at: ago(14), actor: "rafael.costa@crjsystems.com", event: "api_key.rotated", target: "key_prod_a8x", ip: "189.122.04.34", severity: "warning" },
-  { id: "ev_4", at: ago(22), actor: "helena.marques@crjsystems.com", event: "ticket.status.changed", target: "TCK-2841 → In Progress", ip: "189.122.04.11", severity: "info" },
-  { id: "ev_5", at: ago(45), actor: "julia.andrade@crjsystems.com", event: "ticket.assigned", target: "TCK-2841 → Helena Marques", ip: "189.122.04.92", severity: "info" },
+  { id: "ev_4", at: ago(22), actor: "carolina.reis@crjsystems.com", event: "ticket.status.changed", target: "TCK-2841 → In Progress", ip: "189.122.04.11", severity: "info" },
+  { id: "ev_5", at: ago(45), actor: "julia.andrade@crjsystems.com", event: "ticket.assigned", target: "TCK-2841 → Carolina Reis", ip: "189.122.04.92", severity: "info" },
   { id: "ev_6", at: ago(60), actor: "system", event: "encryption.key.rotated", target: "vault_prod", ip: "—", severity: "info" },
   { id: "ev_7", at: ago(120), actor: "bruno.lima@crjsystems.com", event: "customer.export.attempted", target: "c_001 (denied)", ip: "189.122.05.21", severity: "critical" },
   { id: "ev_8", at: ago(180), actor: "system", event: "auth.failed_login", target: "unknown@—", ip: "201.45.221.18", severity: "warning" },
-  { id: "ev_9", at: ago(240), actor: "helena.marques@crjsystems.com", event: "session.started", target: "MFA verified", ip: "189.122.04.11", severity: "info" },
+  { id: "ev_9", at: ago(240), actor: "carolina.reis@crjsystems.com", event: "session.started", target: "MFA verified", ip: "189.122.04.11", severity: "info" },
   { id: "ev_10", at: ago(360), actor: "system", event: "data_retention.purge", target: "2,840 records (>180d)", ip: "—", severity: "info" },
 ];
 

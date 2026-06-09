@@ -47,7 +47,7 @@ const TicketDetailSheet = ({ ticket, open, onOpenChange }) => {
     }
     setLocalNotes((n) => [
       ...n,
-      { id: `local-${Date.now()}`, author: "Helena Marques", at: new Date().toISOString(), body: note.trim() },
+      { id: `local-${Date.now()}`, author: "Carolina Reis", at: new Date().toISOString(), body: note.trim() },
     ]);
     setNote("");
     toast.success("Internal note added", { description: "Visible only to support staff." });

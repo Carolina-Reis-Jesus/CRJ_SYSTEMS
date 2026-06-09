@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
   const login = useCallback(({ email, password }) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (email === "helena@crjsystems.com" && password === "Tier2!2026") {
+        if (email === "carolina@crjsystems.com" && password === "Tier2!2026") {
           const session = { ...CURRENT_USER, sessionStartedAt: new Date().toISOString() };
           sessionStorage.setItem(STORAGE_KEY, JSON.stringify(session));
           setUser(session);
