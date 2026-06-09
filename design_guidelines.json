@@ -1,0 +1,151 @@
+{
+  "theme": "light",
+  "archetype": 4,
+  "archetype_name": "Swiss & High-Contrast (Linear/Vercel Vibe)",
+  "typography": {
+    "font_family_primary": "Satoshi, Inter, sans-serif",
+    "font_family_secondary": "Geist, Inter, sans-serif",
+    "font_family_mono": "Geist Mono, JetBrains Mono, monospace",
+    "headings": {
+      "h1": "text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900",
+      "h2": "text-2xl sm:text-3xl font-medium tracking-tight text-slate-900",
+      "h3": "text-xl sm:text-2xl font-medium tracking-tight text-slate-800",
+      "h4": "text-lg sm:text-xl font-medium tracking-tight text-slate-800"
+    },
+    "body": "text-sm text-slate-600 leading-relaxed",
+    "labels": "text-xs font-medium uppercase tracking-[0.05em] text-slate-500"
+  },
+  "colors": {
+    "background": {
+      "default": "bg-white",
+      "subtle": "bg-slate-50",
+      "surface": "bg-white",
+      "inverse": "bg-slate-900"
+    },
+    "border": {
+      "default": "border-slate-200",
+      "subtle": "border-slate-100",
+      "focus": "focus:border-indigo-500 focus:ring-indigo-500/20"
+    },
+    "text": {
+      "primary": "text-slate-900",
+      "secondary": "text-slate-600",
+      "muted": "text-slate-400",
+      "inverse": "text-white"
+    },
+    "primary": {
+      "default": "bg-indigo-600",
+      "hover": "hover:bg-indigo-700",
+      "text": "text-indigo-600",
+      "subtle": "bg-indigo-50 text-indigo-700 border-indigo-200"
+    },
+    "status": {
+      "success": "bg-emerald-50 text-emerald-700 border-emerald-200",
+      "warning": "bg-amber-50 text-amber-700 border-amber-200",
+      "error": "bg-rose-50 text-rose-700 border-rose-200",
+      "neutral": "bg-slate-50 text-slate-700 border-slate-200"
+    }
+  },
+  "layout": {
+    "spacing": {
+      "container_padding": "p-6 md:p-8",
+      "gap_standard": "gap-6",
+      "gap_tight": "gap-4"
+    },
+    "grid": {
+      "dashboard": "grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
+      "card_internal": "p-6 flex flex-col gap-4"
+    },
+    "border_radius": "rounded-lg",
+    "patterns": {
+      "card": "bg-white border border-slate-200 rounded-lg shadow-sm"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-indigo-600 text-white hover:bg-indigo-700 h-9 px-4 py-2 shadow-sm",
+      "secondary": "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-white border border-slate-200 text-slate-900 hover:bg-slate-50 hover:text-slate-900 h-9 px-4 py-2",
+      "ghost": "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-slate-100 hover:text-slate-900 h-9 px-4 py-2"
+    },
+    "tables": {
+      "container": "w-full overflow-hidden rounded-lg border border-slate-200 bg-white",
+      "header": "bg-slate-50 border-b border-slate-200",
+      "header_cell": "px-4 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider",
+      "row": "bg-white border-b border-slate-200 hover:bg-slate-50 transition-colors",
+      "cell": "px-4 py-3 text-sm text-slate-600 whitespace-nowrap"
+    },
+    "sidebar": {
+      "container": "bg-slate-50 border-r border-slate-200 h-screen sticky top-0 flex flex-col transition-all duration-300",
+      "item": "flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors",
+      "item_active": "bg-white text-indigo-600 shadow-sm border border-slate-200/50",
+      "item_inactive": "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+    },
+    "badges": {
+      "base": "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold border"
+    }
+  },
+  "features": {
+    "lgpd_masking": {
+      "phone": "Format as +55 (11) 97777-****. Mask last 4 digits.",
+      "email": "Format as u***@client.com. Keep first character, mask next 3-4 with asterisks, keep domain."
+    },
+    "rbac": {
+      "badge": "Display 'Support Specialist (Tier 2)' in header/sidebar.",
+      "locked_actions": "Delete buttons must be visually disabled (opacity-50) with a subtle lock icon (Lucide Lock). Show toast 'Admin rights required' if clicked."
+    },
+    "audit_logs": {
+      "display": "Ticket history tab must show chronological events (e.g., 'Status changed to In Progress by Agent X')."
+    }
+  },
+  "animation": {
+    "hover": "transition-all duration-200 ease-in-out",
+    "sliding_panel": "Use Shadcn Sheet component for sliding transitions",
+    "toast": "Use Sonner for slide-in toast notifications"
+  },
+  "testing": {
+    "attributes": "All interactive elements (buttons, inputs, tabs, table rows) MUST have data-testid attributes (e.g., data-testid='ticket-row-123', data-testid='delete-ticket-button')."
+  },
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc4MDkzOTc1NXww&ixlib=rb-4.1.0&q=85",
+      "category": "customer_avatar",
+      "description": "Professional headshot of a smiling woman"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc4MDkzOTc1NXww&ixlib=rb-4.1.0&q=85",
+      "category": "agent_avatar",
+      "description": "Professional headshot of a man"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1607503873903-c5e95f80d7b9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc4MDkzOTc1NXww&ixlib=rb-4.1.0&q=85",
+      "category": "customer_avatar",
+      "description": "Professional headshot of a woman in black shirt"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBoZWFkc2hvdCUyMHBvcnRyYWl0fGVufDB8fHx8MTc4MDkzOTc1NXww&ixlib=rb-4.1.0&q=85",
+      "category": "customer_avatar",
+      "description": "Professional headshot of a man in white shirt"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1618243329711-359c196ffb38?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwyfHxzdGFydHVwJTIwdGVjaCUyMGNvbXBhbnklMjBsb2dvJTIwbWluaW1hbHxlbnwwfHx8fDE3ODEwNDIwNjV8MA&ixlib=rb-4.1.0&q=85",
+      "category": "company_logo",
+      "description": "Minimal startup company logo (black on white)"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1618242579640-44870fefec88?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHwxfHxzdGFydHVwJTIwdGVjaCUyMGNvbXBhbnklMjBsb2dvJTIwbWluaW1hbHxlbnwwfHx8fDE3ODEwNDIwNjV8MA&ixlib=rb-4.1.0&q=85",
+      "category": "company_logo",
+      "description": "Minimal tech company logo (blue and white)"
+    }
+  ],
+  "instructions_to_main_agent": [
+    "Install 'lucide-react' for crisp iconography.",
+    "Install 'recharts' for the Dashboard KPI trends (Ticket volume by priority).",
+    "Install 'sonner' for all toast notifications, including LGPD action alerts and RBAC errors.",
+    "Import Satoshi Font in your CSS: @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap'); and apply it to body.",
+    "Build standard dashboard structure: Sticky Sidebar (collapsible) + Main Content Area.",
+    "Data Mocking: Create robust mock objects for Tickets, Customers, and Audit Logs. Implement a maskLGPD() utility specifically for rendering Customer details in Tables.",
+    "RBAC: Create a static role context 'Support Specialist (Tier 2)'. Render Delete buttons with opacity-50 and a Lock icon. On click, fire a Sonner error toast.",
+    "Use Shadcn 'Sheet' component for the Ticket Queue detail panel.",
+    "Add 'data-testid' to ALL interactive elements to satisfy testing requirements."
+  ]
+}
