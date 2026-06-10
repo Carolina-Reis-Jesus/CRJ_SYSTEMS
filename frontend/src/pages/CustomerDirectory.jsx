@@ -21,7 +21,7 @@ const CustomerDirectory = () => {
   const [query, setQuery] = useState("");
   const [revealMode, setRevealMode] = useState(false);
 
-  const rows = useMemo(() => {
+ const rows = useMemo(() => {
     const enriched = CUSTOMERS.map((c) => ({
       ...c,
       openTickets: TICKETS.filter((t) => t.customerId === c.id && t.status !== "Resolved").length,
@@ -34,7 +34,7 @@ const CustomerDirectory = () => {
       c.company.toLowerCase().includes(q) ||
       c.email.toLowerCase().includes(q)
     );
-  }, [query, CUSTOMERS, TICKETS]);
+  }, [query]); 
 
   const onToggleReveal = (next) => {
     if (next === true) {
