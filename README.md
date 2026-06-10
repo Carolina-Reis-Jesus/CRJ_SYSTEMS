@@ -38,6 +38,11 @@ Como desenvolvedora, acredito que a resolução de problemas é a parte mais val
 
 *Lição:* O deploy é onde o código encontra o mundo real, e entender logs é uma habilidade fundamental que desenvolvi neste projeto.
 
+## 🚀 Em Desenvolvimento
+- [ ] Otimização de Responsividade (Mobile-first)
+- [ ] Implementação de novos filtros de busca
+- [ ] Integração com backend (em breve)
+
 ## 📦 Como rodar localmente
 1. Clone este repositório:
 ```bash
