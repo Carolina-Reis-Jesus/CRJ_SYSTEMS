@@ -205,13 +205,13 @@ const Dashboard = () => {
             const c = CUSTOMERS.find((x) => x.id === t.customerId);
             const a = AGENTS.find((x) => x.id === t.assignedTo);
             return (
-              <div key={t.id} className="py-3 flex items-center gap-4">
-                <span className="font-mono text-[11px] text-slate-500 w-20 tabular-nums">{t.id}</span>
-                <span className="text-sm text-slate-900 flex-1 truncate">{t.subject}</span>
+              <div key={t.id} className="py-3 flex items-center gap-2 sm:gap-4">
+                <span className="font-mono text-[11px] text-slate-500 w-16 sm:w-20 tabular-nums shrink-0">{t.id}</span>
+                <span className="text-sm text-slate-900 flex-1 truncate min-w-0">{t.subject}</span>
                 <Badge
                   variant="outline"
                   className={cn(
-                    "text-[10px] border",
+                    "text-[10px] border shrink-0",
                     t.priority === "High" ? "bg-rose-50 text-rose-700 border-rose-200" :
                     t.priority === "Medium" ? "bg-amber-50 text-amber-700 border-amber-200" :
                     "bg-emerald-50 text-emerald-700 border-emerald-200"
@@ -219,12 +219,12 @@ const Dashboard = () => {
                 >
                   {t.priority}
                 </Badge>
-                <span className="text-xs text-slate-500 hidden md:block w-40 truncate">{c?.company}</span>
-                <div className="hidden md:flex items-center gap-1.5 w-32">
+                <span className="text-xs text-slate-500 hidden lg:block w-40 truncate shrink-0">{c?.company}</span>
+                <div className="hidden lg:flex items-center gap-1.5 w-32 shrink-0">
                   <img src={a?.avatar} className="h-5 w-5 rounded-full object-cover" alt={a?.name} />
                   <span className="text-xs text-slate-600 truncate">{a?.name}</span>
                 </div>
-                <span className="text-[11px] text-slate-400 w-16 text-right">{formatRelative(t.updatedAt)}</span>
+                <span className="hidden sm:inline text-[11px] text-slate-400 w-16 text-right shrink-0">{formatRelative(t.updatedAt)}</span>
               </div>
             );
           })}
