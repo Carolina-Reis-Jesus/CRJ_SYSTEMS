@@ -181,12 +181,12 @@ const SecurityAudit = () => {
 
       {/* Audit log */}
       <div data-testid="audit-log" className="bg-white rounded-xl ring-1 ring-slate-200/70 overflow-hidden">
-        <div className="px-5 py-4 border-b border-slate-200/70 flex items-center justify-between">
-          <div>
+        <div className="px-4 sm:px-5 py-4 border-b border-slate-200/70 flex items-center justify-between gap-3">
+          <div className="min-w-0">
             <h3 className="text-sm font-semibold text-slate-900">Immutable audit trail</h3>
-            <p className="text-xs text-slate-500 mt-0.5">All system and user actions · last 24h</p>
+            <p className="text-xs text-slate-500 mt-0.5 hidden sm:block">All system and user actions · last 24h</p>
           </div>
-          <Badge variant="outline" className="text-[10px] bg-emerald-50 text-emerald-700 border-emerald-200 inline-flex items-center gap-1">
+          <Badge variant="outline" className="text-[10px] bg-emerald-50 text-emerald-700 border-emerald-200 inline-flex items-center gap-1 shrink-0">
             <CheckCircle2 className="h-3 w-3" /> Tamper-evident
           </Badge>
         </div>
@@ -194,12 +194,12 @@ const SecurityAudit = () => {
           <table className="w-full">
             <thead className="bg-slate-50/70 border-b border-slate-200/70">
               <tr className="text-left text-[10px] uppercase tracking-[0.14em] text-slate-500">
-                <th className="px-4 py-3 font-medium">When</th>
-                <th className="px-4 py-3 font-medium">Actor</th>
-                <th className="px-4 py-3 font-medium">Event</th>
-                <th className="px-4 py-3 font-medium">Target</th>
-                <th className="px-4 py-3 font-medium">IP</th>
-                <th className="px-4 py-3 font-medium">Severity</th>
+                <th className="px-3 sm:px-4 py-3 font-medium">When</th>
+                <th className="hidden md:table-cell px-4 py-3 font-medium">Actor</th>
+                <th className="px-3 sm:px-4 py-3 font-medium">Event</th>
+                <th className="hidden lg:table-cell px-4 py-3 font-medium">Target</th>
+                <th className="hidden xl:table-cell px-4 py-3 font-medium">IP</th>
+                <th className="px-3 sm:px-4 py-3 font-medium">Severity</th>
               </tr>
             </thead>
             <tbody>
@@ -208,12 +208,12 @@ const SecurityAudit = () => {
                 const SevIcon = sev.icon;
                 return (
                   <tr key={e.id} data-testid={`audit-row-${e.id}`} className="border-b border-slate-100">
-                    <td className="px-4 py-3 text-xs text-slate-500 tabular-nums">{formatRelative(e.at)}</td>
-                    <td className="px-4 py-3 font-mono text-xs text-slate-700">{e.actor}</td>
-                    <td className="px-4 py-3 font-mono text-xs text-slate-900">{e.event}</td>
-                    <td className="px-4 py-3 text-xs text-slate-700">{e.target}</td>
-                    <td className="px-4 py-3 font-mono text-xs text-slate-500">{e.ip}</td>
-                    <td className="px-4 py-3">
+                    <td className="px-3 sm:px-4 py-3 text-xs text-slate-500 tabular-nums whitespace-nowrap">{formatRelative(e.at)}</td>
+                    <td className="hidden md:table-cell px-4 py-3 font-mono text-xs text-slate-700">{e.actor}</td>
+                    <td className="px-3 sm:px-4 py-3 font-mono text-xs text-slate-900">{e.event}</td>
+                    <td className="hidden lg:table-cell px-4 py-3 text-xs text-slate-700">{e.target}</td>
+                    <td className="hidden xl:table-cell px-4 py-3 font-mono text-xs text-slate-500">{e.ip}</td>
+                    <td className="px-3 sm:px-4 py-3">
                       <Badge variant="outline" className={cn("text-[10px] inline-flex items-center gap-1", sev.bg)}>
                         <SevIcon className="h-3 w-3" /> {e.severity}
                       </Badge>

@@ -62,7 +62,7 @@ const TicketDetailSheet = ({ ticket, open, onOpenChange }) => {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent side="right" className="w-full sm:max-w-2xl p-0 flex flex-col">
-        <SheetHeader className="px-6 py-5 border-b border-slate-200/70">
+        <SheetHeader className="px-4 sm:px-6 py-5 border-b border-slate-200/70">
           <div className="flex items-center gap-2 mb-2">
             <span className="font-mono text-[11px] text-slate-500">{ticket.id}</span>
             <Badge variant="outline" className={cn("text-[10px]", statusStyles[ticket.status])}>{ticket.status}</Badge>
@@ -79,7 +79,7 @@ const TicketDetailSheet = ({ ticket, open, onOpenChange }) => {
           </SheetDescription>
         </SheetHeader>
 
-        <div className="px-6 py-4 grid grid-cols-2 gap-4 border-b border-slate-200/70 bg-slate-50/40">
+        <div className="px-4 sm:px-6 py-4 grid grid-cols-1 sm:grid-cols-2 gap-4 border-b border-slate-200/70 bg-slate-50/40">
           <div>
             <p className="text-[10px] uppercase tracking-[0.14em] text-slate-500 mb-2">Customer</p>
             <div className="flex items-center gap-2.5">
@@ -137,7 +137,7 @@ const TicketDetailSheet = ({ ticket, open, onOpenChange }) => {
         </div>
 
         <div className="flex-1 overflow-y-auto scrollbar-thin">
-          <Tabs defaultValue="conversation" className="px-6 py-4">
+          <Tabs defaultValue="conversation" className="px-4 sm:px-6 py-4">
             <TabsList className="bg-slate-100/70 h-9">
               <TabsTrigger value="conversation" data-testid="tab-conversation" className="text-xs"><MessageSquare className="h-3.5 w-3.5 mr-1.5" />Conversation</TabsTrigger>
               <TabsTrigger value="history" data-testid="tab-history" className="text-xs"><History className="h-3.5 w-3.5 mr-1.5" />Audit history</TabsTrigger>
@@ -235,12 +235,12 @@ const TicketDetailSheet = ({ ticket, open, onOpenChange }) => {
           </Tabs>
         </div>
 
-        <div className="px-6 py-4 border-t border-slate-200/70 bg-white flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Clock className="h-4 w-4 text-slate-400" />
-            <span className="text-xs text-slate-500">Auto-saved · all actions are audit-logged</span>
+        <div className="px-4 sm:px-6 py-4 border-t border-slate-200/70 bg-white flex items-center justify-between gap-3 flex-wrap">
+          <div className="flex items-center gap-2 min-w-0">
+            <Clock className="h-4 w-4 text-slate-400 shrink-0" />
+            <span className="text-xs text-slate-500 truncate">Auto-saved · all actions are audit-logged</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <Button variant="outline" size="sm" data-testid="ticket-resolve-button">Mark resolved</Button>
             <Button
               data-testid="ticket-delete-button"

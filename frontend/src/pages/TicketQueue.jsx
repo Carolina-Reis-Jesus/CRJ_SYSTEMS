@@ -197,13 +197,13 @@ const TicketQueue = () => {
           <table className="w-full">
             <thead className="bg-slate-50/70 border-b border-slate-200/70">
               <tr className="text-left text-[10px] uppercase tracking-[0.14em] text-slate-500">
-                <th className="px-4 py-3 font-medium">Ticket</th>
-                <th className="px-4 py-3 font-medium">Subject</th>
-                <th className="px-4 py-3 font-medium">Customer</th>
-                <th className="px-4 py-3 font-medium">Priority</th>
-                <th className="px-4 py-3 font-medium">Status</th>
-                <th className="px-4 py-3 font-medium">Assigned</th>
-                <th className="px-4 py-3 font-medium text-right">Updated</th>
+                <th className="px-3 sm:px-4 py-3 font-medium">Ticket</th>
+                <th className="px-3 sm:px-4 py-3 font-medium">Subject</th>
+                <th className="hidden md:table-cell px-4 py-3 font-medium">Customer</th>
+                <th className="hidden sm:table-cell px-3 sm:px-4 py-3 font-medium">Priority</th>
+                <th className="hidden lg:table-cell px-4 py-3 font-medium">Status</th>
+                <th className="hidden xl:table-cell px-4 py-3 font-medium">Assigned</th>
+                <th className="hidden sm:table-cell px-3 sm:px-4 py-3 font-medium text-right">Updated</th>
               </tr>
             </thead>
             <tbody>
@@ -214,7 +214,7 @@ const TicketQueue = () => {
                   onClick={() => openTicket(t)}
                   className="border-b border-slate-100 hover:bg-slate-50/60 cursor-pointer transition-colors"
                 >
-                  <td className="px-4 py-3 align-middle">
+                  <td className="px-3 sm:px-4 py-3 align-middle">
                     <div className="flex items-center gap-2">
                       <span className="font-mono text-[11px] text-slate-500 tabular-nums">{t.id}</span>
                       {t.sla.breached && (
@@ -224,11 +224,16 @@ const TicketQueue = () => {
                       )}
                     </div>
                   </td>
-                  <td className="px-4 py-3 align-middle max-w-[340px]">
+                  <td className="px-3 sm:px-4 py-3 align-middle max-w-[180px] sm:max-w-[240px] md:max-w-[340px]">
                     <span className="text-sm text-slate-900 truncate block">{t.subject}</span>
                     <span className="text-[11px] text-slate-500">{t.category} · {t.channel}</span>
+                    {/* Mobile-only meta — show priority + status inline since columns are hidden */}
+                    <div className="sm:hidden mt-1.5 flex items-center gap-1.5 flex-wrap">
+                      <Badge variant="outline" className={cn("text-[9px] py-0", priorityStyles[t.priority])}>{t.priority}</Badge>
+                      <Badge variant="outline" className={cn("text-[9px] py-0", statusStyles[t.status])}>{t.status}</Badge>
+                    </div>
                   </td>
-                  <td className="px-4 py-3 align-middle">
+                  <td className="hidden md:table-cell px-4 py-3 align-middle">
                     <div className="flex items-center gap-2">
                       <img src={t.customer?.avatar} alt={t.customer?.name} className="h-7 w-7 rounded-full object-cover ring-1 ring-slate-200" />
                       <div className="leading-tight">
@@ -237,19 +242,19 @@ const TicketQueue = () => {
                       </div>
                     </div>
                   </td>
-                  <td className="px-4 py-3 align-middle">
+                  <td className="hidden sm:table-cell px-3 sm:px-4 py-3 align-middle">
                     <Badge variant="outline" className={cn("text-[10px]", priorityStyles[t.priority])}>{t.priority}</Badge>
                   </td>
-                  <td className="px-4 py-3 align-middle">
+                  <td className="hidden lg:table-cell px-4 py-3 align-middle">
                     <Badge variant="outline" className={cn("text-[10px]", statusStyles[t.status])}>{t.status}</Badge>
                   </td>
-                  <td className="px-4 py-3 align-middle">
+                  <td className="hidden xl:table-cell px-4 py-3 align-middle">
                     <div className="flex items-center gap-2">
                       <img src={t.agent?.avatar} alt={t.agent?.name} className="h-6 w-6 rounded-full object-cover" />
                       <span className="text-sm text-slate-700">{t.agent?.name}</span>
                     </div>
                   </td>
-                  <td className="px-4 py-3 align-middle text-right text-xs text-slate-500 tabular-nums">{formatRelative(t.updatedAt)}</td>
+                  <td className="hidden sm:table-cell px-3 sm:px-4 py-3 align-middle text-right text-xs text-slate-500 tabular-nums">{formatRelative(t.updatedAt)}</td>
                 </tr>
               ))}
               {rows.length === 0 && (
